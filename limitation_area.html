@@ -29,6 +29,12 @@ var h22_did_all = new L.GeoJSON.AJAX("./h22_did_all.geojson",{
     	}
 });
 
+var limitation_surface = new L.GeoJSON.AJAX("./limitation_surface.geojson", {
+	style: function (feature) {
+		return {color: "green"};
+	}
+});
+
 var map = L.map('map', 
           {
           center: [35.686302, 139.776306],
@@ -40,7 +46,8 @@ var baseMaps = {
     };
     
 var overlayMaps = {
-    "h22_did_all": h22_did_all
+    "h22_did_all": h22_did_all,
+    "limitation_surface": limitation_surface
     };
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 </script>
