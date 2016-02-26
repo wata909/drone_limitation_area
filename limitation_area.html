@@ -24,55 +24,11 @@ var gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.p
               });
 // add geojson from file
 var h22_did_all = new L.GeoJSON.AJAX("./h22_did_all.geojson",{
-				pointToLayer: function (feature, latlng) {
-				var fColor;
-					if (feature.properties.code==1){
-					fColor="#FFFF00";}
-					else
-					if (feature.properties.code==2 ){
-					fColor="#aa5500";}
-					else
-					if (feature.properties.code==3 ){
-					fColor="#ffaaff";}
-					else
-					if (feature.properties.code==4 ){
-					fColor="#00aa00";}
-					else
-					if (feature.properties.code==5 ){
-					fColor="#ffaa00";}
-					else
-					if (feature.properties.code==6 ){
-					fColor="#c8c8c8";}
-					else
-					if (feature.properties.code==7 ){
-					fColor="#550000";}
-					else
-					if (feature.properties.code==8 ){
-					fColor="#aaaa7f";}
-					else
-					if (feature.properties.code==9 ){
-					fColor="#00ffff";}
-					else
-					if (feature.properties.code==10 ){
-					fColor="#0000FF";}
-					else
-					if (feature.properties.code==11 ){
-					fColor="#005500";}
-					else
-					if (feature.properties.code==12){
-					fColor="#aaaa7f";}
-				var cMarker = L.circleMarker(latlng, {
-							radius: 5,
-							fillColor: fColor,
-							weight: 1,
-							opacity: 0,
-							fillOpacity: 0.5
-							}).bindPopup("<b>ID:</b> "+feature.properties.id+"<br><b>Land use:</b> "+feature.properties.code);
-				
-				return cMarker;
-				}
-			}
-	);
+	style: function (feature) {
+        	return {color: "orange"};
+    	}
+});
+
 var map = L.map('map', 
           {
           center: [35.686302, 139.776306],
